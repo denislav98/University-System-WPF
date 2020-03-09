@@ -23,7 +23,7 @@ namespace StudentInfoSystem
         public MainWindow()
         {
             InitializeComponent();
-            this.Title = "Студентска информационна система";
+            Title = "Студентска информационна система";
         }
 
         private void resetFields_Click(object sender, RoutedEventArgs e)
