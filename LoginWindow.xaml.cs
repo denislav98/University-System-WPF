@@ -31,24 +31,36 @@ namespace StudentInfoSystem
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
             string username = usernameTxtBox.Text;
-            string password = passwordTxtBox.Text;
+            string password = passwordTxtBox.Password;
             LoginValidation validation = new LoginValidation(username,password,ShowActionErrorMessage);
             User user = new User();
             if (validation.ValidateUserInput(ref user))
-            {
+            { 
+                Student student = StudentValidation.GetStudentDataByFacultyNumber(user);
+                if(student == null)
+                {
+                    resetInputFields();
+                    return;
+                }
                 MainWindow anotherWindow = new MainWindow();
+                anotherWindow.FillStudentDataIntoFields(student);
                 anotherWindow.Show();
-                Hide();
+                Close();
             }
             else
             {
-                MessageBox.Show("Invalid credentials entred !");
-                TextBox usernameBox = usernameTxtBox;
-                usernameBox.Clear();
-                TextBox passwordBox = passwordTxtBox;
-                passwordBox.Clear();
+                resetInputFields();
             }
-            
+
+        }
+
+        private void resetInputFields()
+        {
+            MessageBox.Show("Invalid credentials entred !");
+            TextBox usernameBox = usernameTxtBox;
+            usernameBox.Clear();
+            PasswordBox passwordBox = passwordTxtBox;
+            passwordBox.Clear();
         }
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)

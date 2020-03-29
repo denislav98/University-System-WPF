@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentInfoSystem
 {
-    enum Status
+    public enum Status
     {
         CERTIFIED, DISCONTINUED, SEMESTERS_COMPLETED
     }

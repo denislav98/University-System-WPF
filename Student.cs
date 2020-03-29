@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StudentInfoSystem
 {
-    class Student
+    public class Student
     {
         private string _FirstName;
         private string _SecondName;
@@ -40,11 +40,56 @@ namespace StudentInfoSystem
             get { return _FirstName; }
             set { _FirstName = value; }
         }
-
+        public string SecondName
+        {
+            get { return _SecondName; }
+            set { _SecondName = value; }
+        }
+        public string LastName
+        {
+            get { return _LastName; }
+            set { _LastName = value; }
+        }
+        public string Faculty
+        {
+            get { return _Faculty; }
+            set { _Faculty = value; }
+        }
+        public string Speciality
+        {
+            get { return _Speciality; }
+            set { _Speciality = value; }
+        }
+        public string QualificatioDegree
+        {
+            get { return _QualificatioDegree; }
+            set { _QualificatioDegree = value; }
+        }
+        public Status Status
+        {
+            get { return _Status; }
+            set { _Status = value; }
+        }
         public string FacultyNumber
         {
             get { return _FacultyNumber; }
             set { _FacultyNumber = value; }
         }
+        public int Course
+        {
+            get { return _Course; }
+            set { _Course = value; }
+        }
+        public int Run
+        {
+            get { return _Run; }
+            set { _Run = value; }
+        }
+        public int Group
+        {
+            get { return _Group; }
+            set { _Group = value; }
+        }
+        
     }
 }

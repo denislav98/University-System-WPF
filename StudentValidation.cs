@@ -9,20 +9,10 @@ namespace StudentInfoSystem
 {
     class StudentValidation
     {
-        public Student GetStudentDataByUser(User user)
+        public static Student GetStudentDataByFacultyNumber(User user)
         {
-            Student student = StudentData.TestStudent;
-            if (string.IsNullOrEmpty(user.FacultyNumber))
-            {
-                Logger.LogActivity("Missing faculty number!");
-            }
-
-            if (student.FacultyNumber != user.FacultyNumber)
-            {
-                Logger.LogActivity("No such Student exists!");
-            }
-
-            return student;
+            List<Student> students = StudentData.getAllStudents();
+            return students.Find(s => s.FacultyNumber.Equals(user.FacultyNumber)); ;
         }
     }
 }

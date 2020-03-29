@@ -8,18 +8,17 @@ namespace StudentInfoSystem
 {
     class StudentData
     {
-        private static Student _TestStudent;
+        
+        static private List<Student> students;
 
-        public static Student TestStudent
+        public static List<Student> getAllStudents()
         {
-            get
-            {
-                return _TestStudent;
-            }
-            private set
-            {
+            students = new List<Student>();
+            
+            students.Add(new Student("Ivan", "Ivanov", "Ivanov", "FKSU","KSI","bachelor", Status.CERTIFIED, "121217033", 3, 9, 36));
+            students.Add(new Student("Dragan", "Draganov", "Ivanov", "FKSU", "KSI", "bachelor", Status.CERTIFIED, "1212234567", 3, 9, 36));
 
-            }
+            return students;
         }
     }
 }
