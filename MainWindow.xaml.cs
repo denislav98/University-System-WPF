@@ -23,10 +23,10 @@ namespace StudentInfoSystem
         public MainWindow()
         {
             InitializeComponent();
-            Title = "Студентска информационна система";
+            //Title = "Студентска информационна система";
         }
 
-        public void FillStudentDataIntoFields(Student student)
+     /*   public void FillStudentDataIntoFields(Student student)
         {
             nameTxtBox.Text = student.FirstName;
             secondNameTxtBox.Text = student.SecondName;
@@ -75,6 +75,6 @@ namespace StudentInfoSystem
                     textBox.IsEnabled = true;
                 }
             }
-        }
+        }*/
     }
 }

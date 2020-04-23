@@ -19,7 +19,10 @@ namespace StudentInfoSystem
         private int _Course;
         private int _Run;
         private int _Group;
+        public Student()
+        {
 
+        }
         public Student(string firstName, string secondName, string lastName, string faculty, string speciality, string qualificatioDegree, Status status, string facultyNumber, int course, int run, int group)
         {
             _FirstName = firstName;
@@ -90,6 +93,6 @@ namespace StudentInfoSystem
             get { return _Group; }
             set { _Group = value; }
         }
-        
+
     }
 }
