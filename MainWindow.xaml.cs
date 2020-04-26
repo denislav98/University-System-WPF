@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace StudentInfoSystem
 {
@@ -20,61 +22,123 @@ namespace StudentInfoSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        private StudentInfoContext context;
         public MainWindow()
         {
             InitializeComponent();
             //Title = "Студентска информационна система";
+            FillStudStatusChoices();
+            DataContext = this;
+            context = new StudentInfoContext();
         }
+        public List<string> StudStatusChoices { get; set; }
 
-     /*   public void FillStudentDataIntoFields(Student student)
+        private void FillStudStatusChoices()
         {
-            nameTxtBox.Text = student.FirstName;
-            secondNameTxtBox.Text = student.SecondName;
-            lastNameTextBox.Text = student.LastName;
-            facultyTextBox.Text = student.Faculty;
-            specialityTxtBox.Text = student.Speciality;
-            OKSTxtBox.Text = student.QualificatioDegree;
-            statusTxtBox.Text = student.Status.ToString();
-            courseTxtBox.Text = student.Course.ToString();
-            runTxtBox.Text = student.Run.ToString();
-            groupTxtBox.Text = student.Group.ToString();
-            facultyNumberTxtBox.Text = student.FacultyNumber.ToString();
-        }
-
-        private void resetFields(object sender, RoutedEventArgs e)
-        {
-            foreach (var item in MainGrid.Children)
+            StudStatusChoices = new List<string>();
+            using (IDbConnection connection = new SqlConnection(Properties.Settings.Default.DbConnect))
             {
-                if (item is TextBox)
+                string sqlquery = @"SELECT StatusDescr FROM StudStatus";
+                IDbCommand command = new SqlCommand();
+                command.Connection = connection;
+                connection.Open();
+                command.CommandText = sqlquery;
+                IDataReader reader = command.ExecuteReader();
+                bool notEndOfResult;
+                notEndOfResult = reader.Read();
+                while (notEndOfResult)
                 {
-                    TextBox textBox = (TextBox)item;
-                    textBox.Clear();
+                    string s = reader.GetString(0);
+                    StudStatusChoices.Add(s);
+                    notEndOfResult = reader.Read();
                 }
             }
         }
-
-        private void disableAllControlls(object sender, RoutedEventArgs e)
+        public bool TestStudentsIfEmpty()
         {
-            foreach (var item in MainGrid.Children)
+            IEnumerable<Student> queryStudents = context.Students;
+            int countStudents = queryStudents.Count();
+            return countStudents == 0;
+        }
+
+        public void CopyTestStudents()
+        {
+            foreach (Student st in getAllStudents())
             {
-                if (item is TextBox)
-                {
-                    TextBox textBox = (TextBox)item;
-                    textBox.IsEnabled = false;
-                }
+                context.Students.Add(st);
+            }
+            context.SaveChanges();
+        }
+
+        private List<Student> getAllStudents()
+        {
+            return context.Students.ToList();
+        }
+
+        private void isEmptyStudentsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            bool isEmpty = TestStudentsIfEmpty();
+            if (isEmpty)
+            {
+                CopyTestStudents();
+                MessageBox.Show("Students added successfully");
+            }
+            else
+            {
+                MessageBox.Show(isEmpty.ToString());
+
             }
         }
 
-        private void enableAllControlls(object sender, RoutedEventArgs e)
-        {
-            foreach (var item in MainGrid.Children)
-            {
-                if (item is TextBox)
-                {
-                    TextBox textBox = (TextBox)item;
-                    textBox.IsEnabled = true;
-                }
-            }
-        }*/
+        /*   public void FillStudentDataIntoFields(Student student)
+           {
+               nameTxtBox.Text = student.FirstName;
+               secondNameTxtBox.Text = student.SecondName;
+               lastNameTextBox.Text = student.LastName;
+               facultyTextBox.Text = student.Faculty;
+               specialityTxtBox.Text = student.Speciality;
+               OKSTxtBox.Text = student.QualificatioDegree;
+               statusTxtBox.Text = student.Status.ToString();
+               courseTxtBox.Text = student.Course.ToString();
+               runTxtBox.Text = student.Run.ToString();
+               groupTxtBox.Text = student.Group.ToString();
+               facultyNumberTxtBox.Text = student.FacultyNumber.ToString();
+           }
+
+           private void resetFields(object sender, RoutedEventArgs e)
+           {
+               foreach (var item in MainGrid.Children)
+               {
+                   if (item is TextBox)
+                   {
+                       TextBox textBox = (TextBox)item;
+                       textBox.Clear();
+                   }
+               }
+           }
+
+           private void disableAllControlls(object sender, RoutedEventArgs e)
+           {
+               foreach (var item in MainGrid.Children)
+               {
+                   if (item is TextBox)
+                   {
+                       TextBox textBox = (TextBox)item;
+                       textBox.IsEnabled = false;
+                   }
+               }
+           }
+
+           private void enableAllControlls(object sender, RoutedEventArgs e)
+           {
+               foreach (var item in MainGrid.Children)
+               {
+                   if (item is TextBox)
+                   {
+                       TextBox textBox = (TextBox)item;
+                       textBox.IsEnabled = true;
+                   }
+               }
+           }*/
     }
 }

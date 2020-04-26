@@ -49,7 +49,7 @@ namespace StudentInfoSystem
             main.facultyTextBox.Text = Student.Faculty;
             main.specialityTxtBox.Text = Student.Speciality;
             main.OKSTxtBox.Text = Student.QualificatioDegree;
-            main.statusTxtBox.Text = Student.Status.ToString();
+            main.statusTxtBox.ItemsSource = main.StudStatusChoices;
             main.courseTxtBox.Text = Student.Course.ToString();
             main.runTxtBox.Text = Student.Run.ToString();
             main.groupTxtBox.Text = Student.Group.ToString();
