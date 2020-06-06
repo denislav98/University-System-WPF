@@ -12,8 +12,11 @@ namespace StudentInfoSystem
         public static Student GetStudentDataByFacultyNumber(User user)
         {
             return StudentData.IsThereStudent(user.FacultyNumber);
-            /*List<Student> students = StudentData.getAllStudents();
-            return students.Find(s => s.FacultyNumber.Equals(user.FacultyNumber)); */
+        }
+
+        public static void InsertIntoStudentData()
+        {
+            StudentData.insertIntoStudentAndGrades();
         }
     }
 }

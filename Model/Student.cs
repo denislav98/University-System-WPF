@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace StudentInfoSystem
 {
     public class Student
     {
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int StudentId { get; set; }
         public string FirstName { get; set; }
         public string SecondName { get; set; }
@@ -20,14 +22,15 @@ namespace StudentInfoSystem
         public int Course { get; set; }
         public int Run { get; set; }
         public int Group { get; set; }
+        public List<DisciplineGrade> DisciplineGrades { get; set; }
 
         public Student()
         {
-
+            DisciplineGrades =   new List<DisciplineGrade>();
         }
-        public Student(int studentId,string firstName, string secondName, string lastName, string faculty, string speciality, string qualificatioDegree, Status status, string facultyNumber, int course, int run, int group)
+        public Student(string firstName, string secondName, string lastName, string faculty, string speciality, string qualificatioDegree, Status status, string facultyNumber, int course, int run, int group,List<DisciplineGrade> grades)
         {
-            StudentId = studentId;
+            
             FirstName = firstName;
             SecondName = secondName;
             LastName = lastName;
@@ -39,6 +42,7 @@ namespace StudentInfoSystem
             Course = course;
             Run = run;
             Group = group;
+            DisciplineGrades = grades;
         }
 
         /*  public string FirstName

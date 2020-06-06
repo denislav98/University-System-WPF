@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace StudentInfoSystem
 {
-    class StudentRepository
+    public enum FormOfControl
     {
+        EXAM,ONGOING_ASSESSMENT,NOT_AVAILABLE
     }
 }

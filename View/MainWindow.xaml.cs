@@ -27,7 +27,7 @@ namespace StudentInfoSystem
         {
             InitializeComponent();
             //Title = "Студентска информационна система";
-            FillStudStatusChoices();
+            //FillStudStatusChoices();
             DataContext = this;
             context = new StudentInfoContext();
         }

@@ -34,29 +34,20 @@ namespace StudentInfoSystem
             string password = passwordTxtBox.Password;
             LoginValidation validation = new LoginValidation(username,password,ShowActionErrorMessage);
             User user = new User();
-            if (validation.ValidateUserInput(ref user))
-            {
-                /*  Student student = StudentValidation.GetStudentDataByFacultyNumber(user);
-                  if(student == null)
-                  {
-                      resetInputFields();
-                      return;
-                  }
-                  MainWindow anotherWindow = new MainWindow();
-                  anotherWindow.FillStudentDataIntoFields(student);
-                  anotherWindow.Show();
-                  Close();*/
+          /*  if (validation.ValidateUserInput(ref user))
+            {*/
+                StudentValidation.InsertIntoStudentData();
                 Student student = StudentValidation.GetStudentDataByFacultyNumber(user);
                 MainWindow mainWindow = new MainWindow();
                 MainWindowViewModel vm = new MainWindowViewModel(student, mainWindow);
                 mainWindow.DataContext = vm;
                 mainWindow.Show();
                 Close();
-            }
+           /* }
             else
             {
                 resetInputFields();
-            }
+            }*/
 
         }
 

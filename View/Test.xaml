@@ -1,0 +1,143 @@
+﻿<Window x:Class="StudentInfoSystem.View.Test"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:StudentInfoSystem.View"
+        mc:Ignorable="d"
+        Title="Test" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="1">
+            <StackPanel x:Name="STACKActualStockDeliverTime">
+                <Border>
+
+                    <TextBlock>
+                <Run x:Name="HEADERActualStockDeliverTime"
+                        FontSize="24"
+                        Text="Voorraad en levertijd"></Run><LineBreak />
+                <Run x:Name="TXTActualStock"
+                        FontSize="18"
+                        Text="Actuele voorraad: "></Run><LineBreak />
+                <Run x:Name="TXTInPuraseOrder"
+                        FontSize="18"
+                        Text="Aantal in inkooporders: "></Run><LineBreak />
+                <Run x:Name="TXTInSalesOrder"
+                        FontSize="18"
+                        Text="Aantal in verkooporders: "></Run><LineBreak />
+                <Run x:Name="TXTDeliverTime"
+                        FontSize="18"
+                        Text="Levertijd: "></Run>
+                    </TextBlock>
+                </Border>
+                <StackPanel.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="Background"
+                                Value="#88287d37" />
+                        <Setter Property="Margin"
+                                Value="5" />
+                        <Setter Property="Width"
+                                Value="400" />
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="Foreground"
+                                Value="White" />
+                        <Setter Property="Margin"
+                                Value="5" />
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+
+            <StackPanel  x:Name="STACKActualStockDeliverTime2">
+                <Border>
+                    <TextBlock>
+                <Run x:Name="BINDActualStock"
+                        FontSize="18"
+                        Text="{Binding ActualStock}" /><LineBreak />
+                <Run x:Name="BINDInPuraseOrder"
+                        FontSize="18"
+                        Text="4" /><LineBreak />
+                <Run x:Name="BINDInSalesOrder"
+                        FontSize="18"
+                        Text="12" /><LineBreak />
+                <Run x:Name="BINDDeliverTime"
+                        FontSize="18"
+                        Text="2 weken" />
+                    </TextBlock>
+                </Border>
+            </StackPanel>
+
+            <StackPanel x:Name="STACKExtraInfo2"
+                        Margin="0,20,0,0">
+                <Border>
+                    <TextBlock>
+                   <Run x:Name="BINDStatus"
+                        FontSize="18"
+                        Text="vrijgegeven"></Run><LineBreak />
+                   <Run x:Name="BINDBlocked"
+                        FontSize="18"
+                        Text="nee"></Run>
+                    </TextBlock>
+
+                </Border>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Right">
+            <StackPanel x:Name="STACKPrices">
+                <Border>
+                    <TextBlock>
+                    <Run x:Name="HEADERPrices"
+                         FontSize="24"
+                         Text="Prijzen"></Run><LineBreak />
+                    <Run x:Name="TXTPurasePrice"
+                         FontSize="18"
+                         Text="Inkoopprijs: "></Run><LineBreak />
+                    <Run x:Name="TXTSalesPrice"
+                         FontSize="18"
+                         Text="Verkoopprijs: "></Run><LineBreak />
+                    <Run x:Name="TXTMargin"
+                         FontSize="18"
+                         Text="Marge: "></Run>
+                    </TextBlock>
+                </Border>
+            </StackPanel>
+
+            <StackPanel x:Name="STACKPrices2">
+                <Border>
+                    <TextBlock>
+                    <Run x:Name="BINDPurchasePrice"
+                         FontSize="18"
+                         Text="{Binding PurchasePrice}"></Run><LineBreak />
+                    <Run x:Name="BINDUnitPriceEXCLVAT"
+                         FontSize="18"
+                         Text="{Binding UnitPriceExclVAT}"></Run><LineBreak />
+                    <Run x:Name="BINDMargin"
+                         FontSize="18"
+                         Text="{Binding Margin}"></Run>
+                    </TextBlock>
+                </Border>
+            </StackPanel>
+
+            <StackPanel x:Name="STACKExtraInfo">
+                <Border>
+                    <TextBlock>
+                    <Run x:Name="HEADERExtraInfo"
+                         FontSize="24"
+                         Text="Extra informatie"></Run><LineBreak />
+                    <Run x:Name="TXTStatus"
+                         FontSize="18"
+                         Text="Status: "></Run><LineBreak />
+                    <Run x:Name="TXTBlocked"
+                         FontSize="18"
+                         Text="Geblokkeerd: "></Run>
+                    </TextBlock>
+
+                </Border>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>
