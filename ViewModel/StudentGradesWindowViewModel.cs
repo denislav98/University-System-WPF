@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -13,8 +14,16 @@ namespace StudentInfoSystem.ViewModel
     class StudentGradesWindowViewModel : ObservableBase
     {
         private Student _student;
-        private bool _canEditProperty = true;
+        private List<DisciplineGrade> _studentGrades;
+
         private StudentInfoContext context;
+        private bool _canEditProperty = true;
+       
+        public List<DisciplineGrade> StudentGrades
+        {
+            get { return _studentGrades; }
+            set { _studentGrades = value; RaisePropertyChangedEvent("DisciplineGrade"); }
+        }
         public Student Student
         {
             get { return _student; }
@@ -24,6 +33,10 @@ namespace StudentInfoSystem.ViewModel
         {
             get { return _canEditProperty; }
             set { _canEditProperty = value; RaisePropertyChangedEvent("CanEditProperty"); }
+        }
+        public ICommand LoadStudentDataCommand
+        {
+            get { return new RelayCommand<StudentGradesWindow>(LoadStudentGrades); }
         }
 
         public StudentGradesWindowViewModel(Student student, StudentGradesWindow gradesWindow)
@@ -37,38 +50,60 @@ namespace StudentInfoSystem.ViewModel
             context = new StudentInfoContext();
             LoadStudentGrades(gradesWindow);
         }
-        public List<DisciplineGrade> StudentDisciplineGrades { get; set; }
+
+        public List<string> GetStudentFailedExams()
+        {
+            List<string> failedExamMessage = new List<string>();
+            failedExamMessage.Add("Failed Exams :");
+            foreach (DisciplineGrade grade in StudentGrades)
+            {
+                if(grade.Grade == 2)
+                {
+                    failedExamMessage.Add(grade.Discipline);
+                }
+            }
+
+            return failedExamMessage;
+        }
+
+        public double CalculateStudentAverageGrade() 
+        {
+            double gradesCount = 0;
+
+            foreach(DisciplineGrade grade in StudentGrades)
+            {
+                gradesCount += grade.Grade;
+            }
+
+            return gradesCount / StudentGrades.Count;
+        }
 
         private void loadStudentDisciplineGradesFromDb()
         {
-            StudentDisciplineGrades = new List<DisciplineGrade>();
+            StudentGrades = new List<DisciplineGrade>();
 
-            StudentDisciplineGrades = context.DisciplineGrades.Where(i => i.StudentId == Student.StudentId).ToList();
+            StudentGrades = context.DisciplineGrades.Where(i => i.StudentId == Student.StudentId).ToList();
         }
-
-        /* public ICommand LoadStudentGradesComand
-         {
-             get { return new RelayCommand(LoadStudentGrades); }
-         }*/
-
+        
         private void LoadStudentGrades(StudentGradesWindow gradesWindow)
         {
             loadStudentDisciplineGradesFromDb();
 
-            for (int i = 0; i < StudentDisciplineGrades.Count; i++)
+            for (int i = 0; i < StudentGrades.Count ; i++)
             {
                 fillDisciplineTextBox(gradesWindow, i);
                 fillGradeTextBox(gradesWindow, i);
                 fillFormOfControlTextBox(gradesWindow, i);
                 fillLastChangedControlTextBox(gradesWindow, i);
             }
+            MessageBox.Show(StudentGrades.Count.ToString());
         }
 
         private void fillLastChangedControlTextBox(StudentGradesWindow gradesWindow, int i)
         {
             string lastChanged = "LastChanged" + i;
             var lastChangedTextBox = (TextBlock)gradesWindow.FindName(lastChanged);
-            string gradeLastChanged = StudentDisciplineGrades[i].LastChanged.ToString();
+            string gradeLastChanged = StudentGrades[i].LastChanged.ToString();
             isTextBoxNull(gradeLastChanged, lastChangedTextBox);
         }
 
@@ -76,7 +111,7 @@ namespace StudentInfoSystem.ViewModel
         {
             string formOfControl = "FormOfControl" + i;
             var formOfControlTextBox = (TextBlock)gradesWindow.FindName(formOfControl);
-            string gradeFormOfControl = StudentDisciplineGrades[i].FormOfControl.ToString();
+            string gradeFormOfControl = StudentGrades[i].FormOfControl.ToString();
             isTextBoxNull(gradeFormOfControl, formOfControlTextBox);
         }
 
@@ -84,7 +119,7 @@ namespace StudentInfoSystem.ViewModel
         {
             string grade = "Grade" + i;
             var gradeTextBox = (TextBlock)gradesWindow.FindName(grade);
-            string disciplineGrade = StudentDisciplineGrades[i].Grade.ToString();
+            string disciplineGrade = StudentGrades[i].Grade.ToString();
             isTextBoxNull(disciplineGrade, gradeTextBox);
         }
 
@@ -92,7 +127,7 @@ namespace StudentInfoSystem.ViewModel
         {
             string discipline = "Discipline" + i;
             var disciplineTextBloc = (TextBlock)gradesWindow.FindName(discipline);
-            string gradeDiscipline = StudentDisciplineGrades[i].Discipline;
+            string gradeDiscipline = StudentGrades[i].Discipline;
             isTextBoxNull(gradeDiscipline, disciplineTextBloc);
         }
 

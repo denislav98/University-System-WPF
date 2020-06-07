@@ -38,11 +38,10 @@ namespace StudentInfoSystem
             User user = new User();
             if (validation.ValidateUserInput(ref user))
             {
-               // StudentValidation.InsertIntoStudentData();
+                //StudentValidation.InsertIntoStudentData();
                 Student student = StudentValidation.GetStudentDataByFacultyNumber(user);
                 MainWindow mainWindow = new MainWindow();
                 MainWindowViewModel vm = new MainWindowViewModel(student, mainWindow);
-               
                 mainWindow.DataContext = vm;
                 mainWindow.Show();
                 Close();

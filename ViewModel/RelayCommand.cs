@@ -5,17 +5,17 @@ using System.Windows.Input;
 
 namespace StudentInfoSystem
 {
-    class RelayCommand : ICommand
+    class RelayCommand<T> : ICommand
     {
         private readonly Action _action;
-        private Action<MainWindow> loadStudentData;
+        private Action<T> loadStudentData;
 
         public RelayCommand(Action action)
         {
            _action = action;
         }
 
-        public RelayCommand(Action<MainWindow> loadStudentData)
+        public RelayCommand(Action<T> loadStudentData)
         {
             this.loadStudentData = loadStudentData;
         }

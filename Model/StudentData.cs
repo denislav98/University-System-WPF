@@ -33,7 +33,7 @@ namespace StudentInfoSystem
             grades.Add(new DisciplineGrade("Iconomics", FormOfControl.ONGOING_ASSESSMENT, 4, DateTime.Now,1,1));
             grades.Add(new DisciplineGrade("OIP", FormOfControl.ONGOING_ASSESSMENT, 3, DateTime.Now,1,1));
             grades.Add(new DisciplineGrade("Programing C", FormOfControl.EXAM, 6, DateTime.Now,1,1));
-            grades.Add(new DisciplineGrade("Fizics", FormOfControl.EXAM, 6, DateTime.Now,1,1));
+            grades.Add(new DisciplineGrade("Fizics", FormOfControl.EXAM, 2, DateTime.Now,1,1));
             grades.Add(new DisciplineGrade("Chemistry", FormOfControl.ONGOING_ASSESSMENT, 6, DateTime.Now,1,1));
 
             

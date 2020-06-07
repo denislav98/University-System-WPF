@@ -22,14 +22,26 @@ namespace StudentInfoSystem.View
     /// </summary>
     public partial class StudentGradesWindow : Window
     {
-        private StudentInfoContext context;
-
+         
         public StudentGradesWindow()
         {
             InitializeComponent();
             DataContext = this;
-            context = new StudentInfoContext();
         }
-       
+
+        private void showStudentAverageGradeButtonClick(object sender, RoutedEventArgs e)
+        {
+            StudentGradesWindowViewModel viewModel = ((StudentGradesWindowViewModel)DataContext);
+            double averageStudentGrade = viewModel.CalculateStudentAverageGrade();
+            MessageBox.Show("Your average grade is : " + Math.Round(averageStudentGrade, 2).ToString());
+        }
+
+        private void showFailedStudenExamsButtonClick(object sender, RoutedEventArgs e)
+        {
+            StudentGradesWindowViewModel viewModel = ((StudentGradesWindowViewModel)DataContext);
+            List<string> failedExams = viewModel.GetStudentFailedExams();
+            var message = string.Join(Environment.NewLine, failedExams);
+            MessageBox.Show(message);
+        }
     }
 }

@@ -38,7 +38,7 @@ namespace StudentInfoSystem
 
         public ICommand LoadStudentDataCommand
         {
-            get { return new RelayCommand(LoadStudentData); }
+            get { return new RelayCommand<MainWindow>(LoadStudentData); }
         }
 
         private void LoadStudentData(MainWindow main)
@@ -58,7 +58,7 @@ namespace StudentInfoSystem
 
         public ICommand ClearStudentDataCommand
         {
-            get { return new RelayCommand(ClearStudentData); }
+            get { return new RelayCommand<MainWindow>(ClearStudentData); }
         }
 
         private void ClearStudentData()
@@ -68,7 +68,7 @@ namespace StudentInfoSystem
 
         public ICommand DeactivateEditingCommand
         {
-            get { return new RelayCommand(DeactivateEditing); }
+            get { return new RelayCommand<MainWindow>(DeactivateEditing); }
         }
 
         private void DeactivateEditing()
@@ -78,7 +78,7 @@ namespace StudentInfoSystem
 
         public ICommand ActivateEditingCommand
         {
-            get { return new RelayCommand(ActivateEditing); }
+            get { return new RelayCommand<MainWindow>(ActivateEditing); }
         }
 
         private void ActivateEditing()
