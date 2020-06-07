@@ -14,6 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
+using StudentInfoSystem.View;
+using StudentInfoSystem.ViewModel;
 
 namespace StudentInfoSystem
 {
@@ -26,7 +28,6 @@ namespace StudentInfoSystem
         public MainWindow()
         {
             InitializeComponent();
-            //Title = "Студентска информационна система";
             //FillStudStatusChoices();
             DataContext = this;
             context = new StudentInfoContext();
@@ -90,55 +91,13 @@ namespace StudentInfoSystem
             }
         }
 
-        /*   public void FillStudentDataIntoFields(Student student)
-           {
-               nameTxtBox.Text = student.FirstName;
-               secondNameTxtBox.Text = student.SecondName;
-               lastNameTextBox.Text = student.LastName;
-               facultyTextBox.Text = student.Faculty;
-               specialityTxtBox.Text = student.Speciality;
-               OKSTxtBox.Text = student.QualificatioDegree;
-               statusTxtBox.Text = student.Status.ToString();
-               courseTxtBox.Text = student.Course.ToString();
-               runTxtBox.Text = student.Run.ToString();
-               groupTxtBox.Text = student.Group.ToString();
-               facultyNumberTxtBox.Text = student.FacultyNumber.ToString();
-           }
-
-           private void resetFields(object sender, RoutedEventArgs e)
-           {
-               foreach (var item in MainGrid.Children)
-               {
-                   if (item is TextBox)
-                   {
-                       TextBox textBox = (TextBox)item;
-                       textBox.Clear();
-                   }
-               }
-           }
-
-           private void disableAllControlls(object sender, RoutedEventArgs e)
-           {
-               foreach (var item in MainGrid.Children)
-               {
-                   if (item is TextBox)
-                   {
-                       TextBox textBox = (TextBox)item;
-                       textBox.IsEnabled = false;
-                   }
-               }
-           }
-
-           private void enableAllControlls(object sender, RoutedEventArgs e)
-           {
-               foreach (var item in MainGrid.Children)
-               {
-                   if (item is TextBox)
-                   {
-                       TextBox textBox = (TextBox)item;
-                       textBox.IsEnabled = true;
-                   }
-               }
-           }*/
+        private void showStudentGradesButton(object sender, RoutedEventArgs e)
+        {
+            Student student = ((MainWindowViewModel)(DataContext)).Student;
+            StudentGradesWindow gradesWindow = new StudentGradesWindow();
+            StudentGradesWindowViewModel gradesViewModel = new StudentGradesWindowViewModel(student, gradesWindow);
+            gradesWindow.DataContext = gradesViewModel;
+            gradesWindow.Show();
+        }
     }
 }

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using StudentInfoSystem.ViewModel;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +22,14 @@ namespace StudentInfoSystem.View
     /// </summary>
     public partial class StudentGradesWindow : Window
     {
+        private StudentInfoContext context;
+
         public StudentGradesWindow()
         {
             InitializeComponent();
+            DataContext = this;
+            context = new StudentInfoContext();
         }
+       
     }
 }

@@ -54,22 +54,6 @@ namespace StudentInfoSystem
             main.runTxtBox.Text = Student.Run.ToString();
             main.groupTxtBox.Text = Student.Group.ToString();
             main.facultyNumberTxtBox.Text = Student.FacultyNumber.ToString();
-            //string firstName = Student.FirstName;
-            //string middleName = Student.MiddleName;
-            //string lastName = Student.LastName;
-            //if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(middleName) || string.IsNullOrWhiteSpace(lastName))
-            //{
-            //MainWindow main = new MainWindow();
-            //    MessageBox.Show("Личните данни трябва да са попълнени!");
-            //    return;
-            //}
-            //Student student = StudentValidation.GetStudentByNames(firstName, middleName, lastName);
-            //if (student == null)
-            //{
-            //    MessageBox.Show("Такъв студент не е намерен!");
-            //    return;
-            //}
-            //Student = student;
         }
 
         public ICommand ClearStudentDataCommand

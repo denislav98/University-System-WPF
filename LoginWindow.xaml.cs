@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StudentInfoSystem.View;
+using StudentInfoSystem.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,22 +34,23 @@ namespace StudentInfoSystem
         {
             string username = usernameTxtBox.Text;
             string password = passwordTxtBox.Password;
-            LoginValidation validation = new LoginValidation(username,password,ShowActionErrorMessage);
+            LoginValidation validation = new LoginValidation(username, password, ShowActionErrorMessage);
             User user = new User();
-          /*  if (validation.ValidateUserInput(ref user))
-            {*/
-                StudentValidation.InsertIntoStudentData();
+            if (validation.ValidateUserInput(ref user))
+            {
+               // StudentValidation.InsertIntoStudentData();
                 Student student = StudentValidation.GetStudentDataByFacultyNumber(user);
                 MainWindow mainWindow = new MainWindow();
                 MainWindowViewModel vm = new MainWindowViewModel(student, mainWindow);
+               
                 mainWindow.DataContext = vm;
                 mainWindow.Show();
                 Close();
-           /* }
+            }
             else
             {
                 resetInputFields();
-            }*/
+            }
 
         }
 

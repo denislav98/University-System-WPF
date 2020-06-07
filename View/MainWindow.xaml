@@ -222,9 +222,16 @@
                 HorizontalAlignment="Left"
                 Margin="430,20,0,0"
                 VerticalAlignment="Top"
-                Width="65"
+                Width="75"
                 Height="20"
                 Click="isEmptyStudentsBtn_Click" />
+        <Button Content="Grades&#xD;&#xA;"
+                HorizontalAlignment="Left"
+                Margin="430,85,0,0"
+                VerticalAlignment="Top"
+                Width="90"
+                Height="30"
+                Click="showStudentGradesButton" />
 
         <!--
      

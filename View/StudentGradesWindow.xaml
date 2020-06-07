@@ -9,24 +9,379 @@
         Height="450"
         Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="30"/>
-            <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="150"/>
-            <ColumnDefinition Width="100"/>
-        </Grid.ColumnDefinitions>
+        <GroupBox>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="3*" />
+                    <RowDefinition Height="0.5*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="690" />
+                </Grid.ColumnDefinitions>
 
+                <DockPanel Grid.Row="0"
+                           Grid.Column="0">
+
+
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <Label HorizontalContentAlignment="Center"
+                               DockPanel.Dock="Left"
+                               Width="200"
+                               Background="#FFF0E3CE">Discipline</Label>
+                    </Border>
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <Label HorizontalContentAlignment="Center"
+                               DockPanel.Dock="Left"
+                               Width="200"
+                               Background="#FFF0E3CE">Form of control</Label>
+                    </Border>
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <Label HorizontalContentAlignment="Center"
+                               DockPanel.Dock="Left"
+                               Width="100"
+                               Background="#FFF0E3CE">Grade</Label>
+                    </Border>
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <Label HorizontalContentAlignment="Center"
+                               DockPanel.Dock="Left"
+                               Width="195"
+                               Background="#FFF0E3CE">Last changed</Label>
+                    </Border>
+                </DockPanel>
+                <DockPanel Grid.Row="1">
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <Label HorizontalContentAlignment="Center"
+                               DockPanel.Dock="Left"
+                               Background="#FFF5D56F">Semester 1</Label>
+                    </Border>
+                </DockPanel>
+
+                <DockPanel Grid.Row="2"
+                           Grid.Column="0">
+
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+
+                        <StackPanel DockPanel.Dock="Left"
+                                    Width="200"
+                                    Height="167"
+                                    Margin="0,0.2,0,0"
+                                    VerticalAlignment="Top">
+                            <StackPanel.Background>
+                                <ImageBrush ImageSource="C:\Users\i517621\Desktop\julto.png" />
+                            </StackPanel.Background>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Discipline1"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+
+                                <TextBlock x:Name="Discipline2"
+                                           Height="26"
+                                           Width="200" />
+
+                            </Border>
+
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Discipline3"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Discipline4"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Discipline5"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Discipline6"
+                                           Height="29"
+                                           Width="200" />
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <StackPanel DockPanel.Dock="Left"
+                                    Width="200"
+                                    Height="167"
+                                    Margin="0,0.2,0,0"
+                                    VerticalAlignment="Top">
+                            <StackPanel.Background>
+                                <ImageBrush ImageSource="C:\Users\i517621\Desktop\julto.png" />
+                            </StackPanel.Background>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="FormOfControl1"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+
+                                <TextBlock x:Name="FormOfControl2"
+                                           Height="26"
+                                           Width="200" />
+
+                            </Border>
+
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="FormOfControl3"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="FormOfControl4"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="FormOfControl5"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="FormOfControl6"
+                                           Height="29"
+                                           Width="200" />
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <StackPanel DockPanel.Dock="Left"
+                                    Width="100"
+                                    Height="167"
+                                    Margin="0,0.2,0,0"
+                                    VerticalAlignment="Top">
+                            <StackPanel.Background>
+                                <ImageBrush ImageSource="C:\Users\i517621\Desktop\julto.png" />
+                            </StackPanel.Background>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Grade1"
+                                           Height="26"
+                                           Width="100" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+
+                                <TextBlock x:Name="Grade2"
+                                           Height="26"
+                                           Width="100" />
+
+                            </Border>
+
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Grade3"
+                                           Height="26"
+                                           Width="100" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Grade4"
+                                           Height="26"
+                                           Width="100" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Grade5"
+                                           Height="26"
+                                           Width="100" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="Grade6"
+                                           Height="29"
+                                           Width="100" />
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <StackPanel DockPanel.Dock="Left"
+                                    Width="200"
+                                    Height="167"
+                                    Margin="0,0.2,0,0"
+                                    VerticalAlignment="Top">
+                            <StackPanel.Background>
+                                <ImageBrush ImageSource="C:\Users\i517621\Desktop\julto.png" />
+                            </StackPanel.Background>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="LastChanged1"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+
+                                <TextBlock x:Name="LastChanged2"
+                                           Height="26"
+                                           Width="200" />
+
+                            </Border>
+
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="LastChanged3"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="LastChanged4"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch">
+                                <TextBlock x:Name="LastChanged5"
+                                           Height="26"
+                                           Width="200" />
+                            </Border>
+                            <Border BorderBrush="Black"
+                                    BorderThickness="1"
+                                    HorizontalAlignment="Stretch"
+                                    VerticalAlignment="Stretch"
+                                    Height="30">
+                                <TextBlock x:Name="LastChanged6"
+                                           Height="29"
+                                           Margin="1" />
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </DockPanel>
+                <DockPanel Grid.Row="3">
+                    <Border BorderBrush="Black"
+                            BorderThickness="1"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch">
+                        <Label HorizontalContentAlignment="Center"
+                               DockPanel.Dock="Left"
+                               Background="#FFF5D56F">Semester 2</Label>
+                    </Border>
+                </DockPanel>
+            </Grid>
+        </GroupBox>
+
+        <GroupBox>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="690" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <WrapPanel Background="LightYellow"
+                           Orientation="Vertical"
+                           ItemHeight="100"
+                           ItemWidth="100"
+                           Grid.Column="1"
+                           HorizontalAlignment="Right"
+                           Width="100" />
+                <StackPanel Orientation="Vertical"
+                            Grid.Row="2"
+                            Grid.Column="1">
+                    <Button x:Name="showStudentAverageGrade"
+                            Margin="10,50,15,15"
+                            Content="Average Success"
+                            Height="40"
+                            FontSize="9" />
+                    <Button x:Name="showFailedExams"
+                            Margin="10,30,15,15"
+                            Content="Failed Exams"
+                            Height="40"
+                            FontSize="9" />
+                </StackPanel>
+            </Grid>
+        </GroupBox>
 
     </Grid>
-    
 </Window>
